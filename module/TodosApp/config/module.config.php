@@ -3,6 +3,7 @@ namespace TodosApp;
 
 use Laminas\Router\Http\Segment;
 use TodosApp\Controller\ToDoController;
+use Laminas\ServiceManager\Factory\InvokableFactory;
 
 return [
 //La siguiente sección es nueva y debe ser agregada a tu archivo
@@ -24,15 +25,18 @@ return [
            ]
        ]
    ],
-   'controllers' => [
-       'factories' => [
-            ToDoController::class => InvokableFactory::class
-        ]
-   ],
+//    'controllers' => [
+//        'factories' => [
+//             ToDoController::class => InvokableFactory::class
+//         ]
+//    ],
    'view_manager' => [
     'display_not_found_reason' => true,
     'display_exceptions' => true,
     'doctype' => 'HTML5',
+    'template_map' => [
+        'layout/layout' => __DIR__ . '/../view/layout/layout.phtml',
+     ],
     'template_path_stack' => [
     __DIR__ . '/../view',
     ]
